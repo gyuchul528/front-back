@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>My first Vue app</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
-        <script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>    
+        <script src=https://unpkg.com/vue@3.2.0/dist/vue.global.js></script>    
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
     <body>
@@ -19,7 +19,7 @@
                 <th>tel</th>
               </tr>
             </thead>
-            <tr v-for="item in items" :key="item.name">
+            <tr v-for="item in items":key="item.name">
               <td>{{ item.name }}</td>
               <td>{{ item.mail }}</td>
               <td>{{ item.tel }}</td>
@@ -36,13 +36,12 @@
             }
           },
           mounted() {
-            // バックエンドのエンドポイントを適切なものに変更してください
-            const backendEndpoint = 'http://localhost:30035/notes_from_b';
+            const data = 'localhost:30035/notes_from_b';
 
             // AXIOSを使用してデータを取得
-            axios.get(backendEndpoint)
+            axios.get(data)
               .then(response => {
-                this.items = response.data; // データを取得してitemsにセット
+                this.items = response.data; 
                 console.log(this.items)
               })
               .catch(error => {
